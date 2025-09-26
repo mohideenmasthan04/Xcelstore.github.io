@@ -1,97 +1,213 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Excel Store</title>
-  <meta name="description" content="Online store for Excel templates and small business software.">
   <style>
-    body{font-family:Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial; margin:0; padding:0; background:#f7f7f8; color:#111}
-    .container{max-width:1000px;margin:0 auto;padding:20px}
-    header{display:flex;align-items:center;justify-content:space-between;padding:20px 0}
-    .logo{font-weight:700;font-size:1.2rem}
-    .hero{background:white;padding:24px;border-radius:8px;box-shadow:0 2px 6px rgba(0,0,0,0.06);margin-bottom:18px}
-    .products{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px}
-    .card{background:white;padding:16px;border-radius:8px;box-shadow:0 1px 4px rgba(0,0,0,0.06);display:flex;flex-direction:column;justify-content:space-between}
-    .price{font-size:1.2rem;font-weight:700;margin-top:8px}
-    .actions{display:flex;gap:8px;margin-top:12px}
-    .btn{padding:10px 12px;border-radius:6px;text-decoration:none;display:inline-block;border:1px solid transparent}
-    .btn-primary{background:#0b69ff;color:white}
-    .btn-secondary{background:white;border-color:#ddd;color:#333}
-    footer{padding:20px 0;text-align:center;color:#666;font-size:0.9rem}
-    @media (max-width:500px){.header{flex-direction:column;gap:8px}}
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100vh;
+      overflow: hidden;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #1e3d59;
+      color: white;
+    }
+
+    .container {
+      display: flex;
+      flex-direction: column;
+      height: 100vh;
+    }
+
+    header {
+      height: 15%;
+      text-align: center;
+      background-color: #1e3d59;
+      padding: 1vh 2vw;
+    }
+
+    header h1 {
+      font-size: 3.5vh;
+      margin: 0;
+      font-weight: bold;
+    }
+
+    header p {
+      font-size: 2vh;
+      margin: 0.5vh 0 0;
+      color: #ffcc00;
+    }
+
+    .news-ticker {
+      height: 6%;
+      background-color: #ffcc00;
+      color: #000;
+      font-size: 6vh;
+      white-space: nowrap;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+    }
+
+    .news-ticker span {
+      display: inline-block;
+      padding-left: 100%;
+      animation: scroll 20s linear infinite;
+    }
+
+    @keyframes scroll {
+      0% { transform: translateX(0%); }
+      100% { transform: translateX(-100%); }
+    }
+
+    .info-section {
+      height: 10%;
+      text-align: center;
+      font-size: 6.8vh;
+      padding: 0.5vh 1vw;
+      background-color: #1e3d59;
+    }
+
+    .product-section {
+      height: 55%;
+      background-color: #f5f6fa;
+      color: #000;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 0.5vh 1vw;
+    }
+
+    .product-section h2 {
+      font-size: 2.5vh;
+      margin: 1vh 0;
+    }
+
+    .product-ticker {
+      width: 100%;
+      overflow: hidden;
+      position: relative;
+      height: 100%;
+    }
+
+    .product-track {
+      display: flex;
+      width: max-content;
+      animation: tickerScroll 40s linear infinite;
+      gap: 20px;
+    }
+
+    .product-card {
+      width: 12vw;
+      flex-shrink: 0;
+      background: white;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      padding: 5px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      text-align: center;
+    }
+
+    .product-card img {
+      width: 100%;
+      height: auto;
+      border-radius: 5px;
+    }
+
+    .product-card p {
+      font-size: 1.4vh;
+      font-weight: bold;
+      margin: 4px 0 0;
+    }
+
+    @keyframes tickerScroll {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+
+    footer {
+      height: 8%;
+      background-color: #294a63;
+      font-size: 1.8vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .whatsapp-float {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: #25D366;
+      color: white;
+      padding: 10px 20px;
+      border-radius: 50px;
+      font-size: 1.8vh;
+      font-weight: bold;
+      text-decoration: none;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+    }
+
+    @media (max-width: 768px) {
+      header h1 { font-size: 3vh; }
+      .news-ticker, .info-section, .product-section h2, footer, .product-card p {
+        font-size: 1.5vh;
+      }
+      .product-card { width: 25vw; }
+    }
   </style>
 </head>
 <body>
   <div class="container">
     <header>
-      <div class="logo">Excel Store</div>
-      <nav><a href="#products">Products</a> • <a href="#contact">Contact</a></nav>
+      <h1>Excel Store</h1>
+      <p>Excel Templates & Small Business Software</p>
     </header>
 
-    <section class="hero">
-      <h1>Excel templates & small business software</h1>
-      <p>Buy ready-made Excel templates for accounting, inventory, invoicing and lightweight software tools. Secure payments via Gumroad or PayPal.</p>
+    <div class="news-ticker">
+      <span>🔥 Accounting, Inventory & VBA Tools | 💼 Perfect for Small Businesses | 📥 Instant Download After Payment!</span>
+    </div>
+
+    <section class="info-section">
+      <p><strong>📧 Email:</strong> mohideenmasthan04@gmail.com | <strong>🌐 Website:</strong> xcelstore.github.io</p>
     </section>
 
-    <section id="products" class="products">
-
-      <!-- Product card 1 -->
-      <article class="card">
-        <h2>Inventory Management Excel</h2>
-        <p>FIFO stock, auto-ledger, sales dashboard. Works in Excel 2016+.</p>
-        <div class="price">₹499 (or choose your currency)</div>
-        <div class="actions">
-          <!-- Replace the href with your Gumroad product link or PayPal button link -->
-          <a class="btn btn-primary" href="https://gum.co/YOUR_GUMROAD_SLUG" target="_blank" rel="noopener">Buy with Gumroad</a>
-          <a class="btn btn-secondary" href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=YOUR_PAYPAL_BUTTON_ID" target="_blank" rel="noopener">Buy with PayPal</a>
+    <section class="product-section">
+      <h2>Our Products</h2>
+      <div class="product-ticker">
+        <div class="product-track">
+          <div class="product-card">
+            <img src="https://cdn-icons-png.flaticon.com/512/2921/2921222.png" alt="Inventory Excel">
+            <p>Inventory Mgmt Excel</p>
+          </div>
+          <div class="product-card">
+            <img src="https://cdn-icons-png.flaticon.com/512/2921/2921226.png" alt="Accounting Excel">
+            <p>Accounting Ledger & P&L</p>
+          </div>
+          <div class="product-card">
+            <img src="https://cdn-icons-png.flaticon.com/512/2921/2921240.png" alt="VBA Tool">
+            <p>Custom VBA Tool</p>
+          </div>
+          <!-- Duplicate for seamless scroll -->
+          <div class="product-card">
+            <img src="https://cdn-icons-png.flaticon.com/512/2921/2921222.png" alt="Attendence Tracker">
+            <p>Attendence Tracker</p>
+          </div>
+          <div class="product-card">
+            <img src="https://cdn-icons-png.flaticon.com/512/2921/2921226.png" alt="Calender">
+            <p>Calender& P&L</p>
+          </div>
         </div>
-      </article>
-
-      <!-- Product card 2 -->
-      <article class="card">
-        <h2>Accounting Ledger & P&L Excel</h2>
-        <p>Auto journal entries, trial balance, P&L & Balance Sheet templates.</p>
-        <div class="price">₹349</div>
-        <div class="actions">
-          <a class="btn btn-primary" href="https://gum.co/YOUR_GUMROAD_SLUG_2" target="_blank" rel="noopener">Buy with Gumroad</a>
-          <a class="btn btn-secondary" href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=YOUR_PAYPAL_BUTTON_ID_2" target="_blank" rel="noopener">Buy with PayPal</a>
-        </div>
-      </article>
-
-      <!-- Product card 3 -->
-      <article class="card">
-        <h2>Custom VBA Tool (small)</h2>
-        <p>Small automation tool delivered as an Excel macro-enabled workbook (.xlsm).</p>
-        <div class="price">₹999</div>
-        <div class="actions">
-          <a class="btn btn-primary" href="https://gum.co/YOUR_GUMROAD_SLUG_3" target="_blank" rel="noopener">Buy with Gumroad</a>
-          <a class="btn btn-secondary" href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=YOUR_PAYPAL_BUTTON_ID_3" target="_blank" rel="noopener">Buy with PayPal</a>
-        </div>
-      </article>
-
-    </section>
-
-    <section id="contact" style="margin-top:20px;">
-      <h3>Contact / Support</h3>
-      <p>If you have questions, email <a href="mailto:mohideenmasthan04@gmail.com">mohideenmasthan04@gmail.com</a> or use the contact form (replace with Formspree/Netlify forms later).</p>
+      </div>
     </section>
 
     <footer>
-      <p>© <span id="year"></span> Excel Store. <a href="#privacy">Privacy</a> • <a href="#terms">Terms</a></p>
+      &copy; 2025 Excel Store | All Rights Reserved
     </footer>
   </div>
 
-  <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
-    /* Notes:
-     - Replace all GUMROAD/PAYPAL placeholders with your real product links.
-     - To offer downloads after payment, host your files on Gumroad/Payhip or attach in the product delivery.
-     - To use a custom domain: add a file named CNAME in your repo root containing your domain (e.g. example.com)
-     - See the step-by-step instructions in the GitHub repo after uploading.
-    */
-  </script>
+  <a href="https://wa.me/919150439636" class="whatsapp-float" target="_blank">Chat on WhatsApp</a>
 </body>
 </html>
-
-
