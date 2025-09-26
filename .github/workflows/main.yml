@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Excel Store - Display Board</title>
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100vh;
+      overflow: hidden;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #1e3d59;
+      color: white;
+    }
+
+    .container {
+      display: flex;
+      flex-direction: column;
+      height: 100vh;
+    }
+
+    header {
+      height: 15%;
+      text-align: center;
+      background-color: #1e3d59;
+      padding: 1vh 2vw;
+    }
+
+    header h1 {
+      font-size: 3.5vh;
+      margin: 0;
+      font-weight: bold;
+    }
+
+    header p {
+      font-size: 2vh;
+      margin: 0.5vh 0 0;
+      color: #ffcc00;
+    }
+
+    .news-ticker {
+      height: 6%;
+      background-color: #ffcc00;
+      color: #000;
+      font-size: 2vh;
+      white-space: nowrap;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+    }
+
+    .news-ticker span {
+      display: inline-block;
+      padding-left: 100%;
+      animation: scroll 20s linear infinite;
+    }
+
+    @keyframes scroll {
+      0% { transform: translateX(0%); }
+      100% { transform: translateX(-100%); }
+    }
+
+    .info-section {
+      height: 10%;
+      text-align: center;
+      font-size: 1.8vh;
+      padding: 0.5vh 1vw;
+      background-color: #1e3d59;
+    }
+
+    .product-section {
+      height: 55%;
+      background-color: #f5f6fa;
+      color: #000;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 0.5vh 1vw;
+    }
+
+    .product-section h2 {
+      font-size: 2.5vh;
+      margin: 1vh 0;
+    }
+
+    .product-ticker {
+      width: 100%;
+      overflow: hidden;
+      position: relative;
+      height: 100%;
+    }
+
+    .product-track {
+      display: flex;
+      width: max-content;
+      animation: tickerScroll 40s linear infinite;
+      gap: 20px;
+    }
+
+    .product-card {
+      width: 12vw;
+      flex-shrink: 0;
+      background: white;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      padding: 5px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      text-align: center;
+    }
+
+    .product-card img {
+      width: 100%;
+      height: auto;
+      border-radius: 5px;
+    }
+
+    .product-card p {
+      font-size: 1.4vh;
+      font-weight: bold;
+      margin: 4px 0 0;
+    }
+
+    @keyframes tickerScroll {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+
+    footer {
+      height: 8%;
+      background-color: #294a63;
+      font-size: 1.8vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .whatsapp-float {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: #25D366;
+      color: white;
+      padding: 10px 20px;
+      border-radius: 50px;
+      font-size: 1.8vh;
+      font-weight: bold;
+      text-decoration: none;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+    }
+
+    @media (max-width: 768px) {
+      header h1 { font-size: 3vh; }
+      .news-ticker, .info-section, .product-section h2, footer, .product-card p {
+        font-size: 1.5vh;
+      }
+      .product-card { width: 25vw; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Excel Store</h1>
+      <p>Excel Templates & Small Business Software</p>
+    </header>
+
+    <div class="news-ticker">
+      <span>🔥 Accounting, Inventory & VBA Tools | 💼 Perfect for Small Businesses | 📥 Instant Download After Payment!</span>
+    </div>
+
+    <section class="info-section">
+      <p><strong>📧 Email:</strong> ismailsteelnellai@gmail.com | <strong>🌐 Website:</strong> xcelstore.github.io</p>
+    </section>
+
+    <section class="product-section">
+      <h2>Our Products</h2>
+      <div class="product-ticker">
+        <div class="product-track">
+          <div class="product-card">
+            <img src="https://cdn-icons-png.flaticon.com/512/2921/2921222.png" alt="Inventory Excel">
+            <p>Inventory Mgmt Excel</p>
+          </div>
+          <div class="product-card">
+            <img src="https://cdn-icons-png.flaticon.com/512/2921/2921226.png" alt="Accounting Excel">
+            <p>Accounting Ledger & P&L</p>
+          </div>
+          <div class="product-card">
+            <img src="https://cdn-icons-png.flaticon.com/512/2921/2921240.png" alt="VBA Tool">
+            <p>Custom VBA Tool</p>
+          </div>
+          <!-- Duplicate for seamless scroll -->
+          <div class="product-card">
+            <img src="https://cdn-icons-png.flaticon.com/512/2921/2921222.png" alt="Inventory Excel">
+            <p>Inventory Mgmt Excel</p>
+          </div>
+          <div class="product-card">
+            <img src="https://cdn-icons-png.flaticon.com/512/2921/2921226.png" alt="Accounting Excel">
+            <p>Accounting Ledger & P&L</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      &copy; 2025 Excel Store | All Rights Reserved
+    </footer>
+  </div>
+
+  <a href="https://wa.me/919150439636" class="whatsapp-float" target="_blank">Chat on WhatsApp</a>
+</body>
+</html>
