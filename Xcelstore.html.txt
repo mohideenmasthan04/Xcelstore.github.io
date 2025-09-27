@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Excel Store</title>
+  <meta name="description" content="Online store for Excel templates and small business software.">
+  <style>
+    body{font-family:Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial; margin:0; padding:0; background:#f7f7f8; color:#111}
+    .container{max-width:1000px;margin:0 auto;padding:20px}
+    header{display:flex;align-items:center;justify-content:space-between;padding:20px 0}
+    .logo{font-weight:700;font-size:1.2rem}
+    .hero{background:white;padding:24px;border-radius:8px;box-shadow:0 2px 6px rgba(0,0,0,0.06);margin-bottom:18px}
+    .products{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px}
+    .card{background:white;padding:16px;border-radius:8px;box-shadow:0 1px 4px rgba(0,0,0,0.06);display:flex;flex-direction:column;justify-content:space-between}
+    .price{font-size:1.2rem;font-weight:700;margin-top:8px}
+    .actions{display:flex;gap:8px;margin-top:12px}
+    .btn{padding:10px 12px;border-radius:6px;text-decoration:none;display:inline-block;border:1px solid transparent}
+    .btn-primary{background:#0b69ff;color:white}
+    .btn-secondary{background:white;border-color:#ddd;color:#333}
+    footer{padding:20px 0;text-align:center;color:#666;font-size:0.9rem}
+    @media (max-width:500px){.header{flex-direction:column;gap:8px}}
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="logo">Excel Store</div>
+      <nav><a href="#products">Products</a> • <a href="#contact">Contact</a></nav>
+    </header>
+
+    <section class="hero">
+      <h1>Excel templates & small business software</h1>
+      <p>Buy ready-made Excel templates for accounting, inventory, invoicing and lightweight software tools. Secure payments via Gumroad or PayPal.</p>
+    </section>
+
+    <section id="products" class="products">
+
+      <!-- Product card 1 -->
+      <article class="card">
+        <h2>Inventory Management Excel</h2>
+        <p>FIFO stock, auto-ledger, sales dashboard. Works in Excel 2016+.</p>
+        <div class="price">₹499 (or choose your currency)</div>
+        <div class="actions">
+          <!-- Replace the href with your Gumroad product link or PayPal button link -->
+          <a class="btn btn-primary" href="https://gum.co/YOUR_GUMROAD_SLUG" target="_blank" rel="noopener">Buy with Gumroad</a>
+          <a class="btn btn-secondary" href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=YOUR_PAYPAL_BUTTON_ID" target="_blank" rel="noopener">Buy with PayPal</a>
+        </div>
+      </article>
+
+      <!-- Product card 2 -->
+      <article class="card">
+        <h2>Accounting Ledger & P&L Excel</h2>
+        <p>Auto journal entries, trial balance, P&L & Balance Sheet templates.</p>
+        <div class="price">₹349</div>
+        <div class="actions">
+          <a class="btn btn-primary" href="https://gum.co/YOUR_GUMROAD_SLUG_2" target="_blank" rel="noopener">Buy with Gumroad</a>
+          <a class="btn btn-secondary" href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=YOUR_PAYPAL_BUTTON_ID_2" target="_blank" rel="noopener">Buy with PayPal</a>
+        </div>
+      </article>
+
+      <!-- Product card 3 -->
+      <article class="card">
+        <h2>Custom VBA Tool (small)</h2>
+        <p>Small automation tool delivered as an Excel macro-enabled workbook (.xlsm).</p>
+        <div class="price">₹999</div>
+        <div class="actions">
+          <a class="btn btn-primary" href="https://gum.co/YOUR_GUMROAD_SLUG_3" target="_blank" rel="noopener">Buy with Gumroad</a>
+          <a class="btn btn-secondary" href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=YOUR_PAYPAL_BUTTON_ID_3" target="_blank" rel="noopener">Buy with PayPal</a>
+        </div>
+      </article>
+
+    </section>
+
+    <section id="contact" style="margin-top:20px;">
+      <h3>Contact / Support</h3>
+      <p>If you have questions, email <a href="mailto:mohideenmasthan04@gmail.com">mohideenmasthan04@gmail.com</a> or use the contact form (replace with Formspree/Netlify forms later).</p>
+    </section>
+
+    <footer>
+      <p>© <span id="year"></span> Excel Store. <a href="#privacy">Privacy</a> • <a href="#terms">Terms</a></p>
+    </footer>
+  </div>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+    /* Notes:
+     - Replace all GUMROAD/PAYPAL placeholders with your real product links.
+     - To offer downloads after payment, host your files on Gumroad/Payhip or attach in the product delivery.
+     - To use a custom domain: add a file named CNAME in your repo root containing your domain (e.g. example.com)
+     - See the step-by-step instructions in the GitHub repo after uploading.
+    */
+  </script>
+</body>
+</html>
